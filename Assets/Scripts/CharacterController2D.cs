@@ -156,7 +156,6 @@ public class CharacterController2D : MonoBehaviour
 		animator.SetBool("isJumping", isJumping);
 		animator.SetBool("onWall", onWall);
 		Flip();
-
 	}
     void GroundCheck()
     {

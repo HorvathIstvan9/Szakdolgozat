@@ -5,7 +5,7 @@ using UnityEngine;
 public class Guide : MonoBehaviour
 {
     [SerializeField] private List<Transform> points;
-    [SerializeField] private float speed = 100;
+    [SerializeField] private float speed = 200;
     Transform guide;
     int goal = 0;
     private void Awake()

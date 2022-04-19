@@ -9,10 +9,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform right;
     [SerializeField] private Transform raycastStart;
     [SerializeField] private Transform raycastEnd;
+    [SerializeField] private Transform shootingPos;
     [SerializeField] private LayerMask layer;
     [SerializeField] private GameObject prefab;
 
-    private bool faceRight = true;
+    private bool faceRight = false;
     private float shootTimer = 1f;
     private Transform nextPosition;
 
@@ -40,7 +41,7 @@ public class Enemy : MonoBehaviour
     {
         if (shootTimer<=0)
         {
-            Instantiate(prefab, raycastStart.position, raycastStart.rotation);
+            Instantiate(prefab, shootingPos.position, shootingPos.rotation);
             shootTimer += 1f;
         }
         shootTimer -= Time.deltaTime;
