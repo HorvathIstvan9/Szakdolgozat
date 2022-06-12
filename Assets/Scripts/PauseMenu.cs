@@ -30,6 +30,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void Menu()
     {
+        Debug.Log("clicked");
         Time.timeScale = 1f;
         isPaused = false;
         SceneManager.LoadScene("Menu");

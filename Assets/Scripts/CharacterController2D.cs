@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using Cinemachine;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -17,6 +18,13 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private LayerMask m_WhatIsClimbableWall;
 	[SerializeField] private Transform m_WallCheck;
 	[SerializeField] private Animator fadeAnimator;
+	[SerializeField] private CinemachineVirtualCamera camera;
+	[SerializeField] private Bar flyTimeBar;
+	[SerializeField] private AudioSource walkAudio;
+	[SerializeField] private AudioSource deathAudio;
+	[SerializeField] private AudioSource flyAudio;
+	[SerializeField] private AudioSource crouchAudio;
+	[SerializeField] private AudioSource collectibleAudio;
 
 	const float k_GroundedRadius = .2f; 
 	bool m_Grounded;            
@@ -88,6 +96,7 @@ public class CharacterController2D : MonoBehaviour
 		animator.SetBool("isJumping", isJumping);
 		animator.SetBool("isFlying", isFlying);
 		flyTime -= Time.deltaTime;
+		flyTimeBar.SetValue(flyTime);
 	}
     private void FixedUpdate()
 	{
@@ -131,7 +140,7 @@ public class CharacterController2D : MonoBehaviour
 				
 				Flip();
 			}
-			animator.SetFloat("speed", Mathf.Abs(horizontalMove));
+			animator.SetFloat("speed", Mathf.Abs(horizontalMove));		
 		}
 		animator.SetBool("isCrouching", crouch);
 	}
@@ -226,12 +235,16 @@ public class CharacterController2D : MonoBehaviour
         }
 		if (collision.gameObject.tag == "Collectible")
 		{
-			flyTime+=5f;
+			flyTime+=4.5f;
+			flyTimeBar.SetMaxValue(flyTime);
 			collision.gameObject.SetActive(false);
+			collectibleAudio.Play();
 		}
 	}
 	IEnumerator Respawn(Vector3 respawn)
     {
+
+		camera.m_Follow = null;
 		isJumping = false;
 		Vector2 direction = m_FacingRight ? Vector2.left : Vector2.right;
 		m_Rigidbody2D.velocity = new Vector2(direction.x * 3, 1f) * m_JumpForce;
@@ -245,10 +258,30 @@ public class CharacterController2D : MonoBehaviour
 		m_CrouchDisableCollider.enabled = true;
 		m_DeathDisableCollider.enabled = true;
 		animator.SetBool("death", isDying);
+		camera.m_Follow = this.gameObject.transform;
 	}
     void Flip()
 	{
 		m_FacingRight = !m_FacingRight;
 		transform.Rotate(0f,180f,0f);
 	}
+
+	public void WalkAudio()
+    {
+		walkAudio.Play();
+    }
+	public void DeathAudio()
+    {
+		deathAudio.Play();
+    }
+
+	public void FlyAudio()
+    {
+		flyAudio.Play();
+    }
+
+	public void CrouchAudio()
+    {
+		crouchAudio.Play();
+    }
 }

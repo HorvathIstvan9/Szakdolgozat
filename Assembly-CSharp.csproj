@@ -53,16 +53,23 @@
     <UnityVersion>2020.3.19f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Door.cs" />
+    <Compile Include="Assets\Scripts\SceneLoader.cs" />
+    <Compile Include="Assets\Scripts\Bar.cs" />
+    <Compile Include="Assets\Scripts\Shroom.cs" />
     <Compile Include="Assets\Scripts\Demo.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\GuideSpawn.cs" />
+    <Compile Include="Assets\Scripts\Background.cs" />
+    <Compile Include="Assets\LogoDrop.cs" />
     <Compile Include="Assets\Scripts\Platform_move.cs" />
     <Compile Include="Assets\Scripts\FlyingCollectible.cs" />
     <Compile Include="Assets\Scripts\Guide.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\CharacterController2D.cs" />
-    <Compile Include="Assets\Scripts\GuideSpawn.cs" />
+    <Compile Include="Assets\Scripts\Worker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

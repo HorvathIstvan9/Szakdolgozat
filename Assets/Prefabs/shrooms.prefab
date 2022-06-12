@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7623547352345828016}
   - component: {fileID: 7623547352345828017}
   - component: {fileID: 7623547352345828018}
+  - component: {fileID: 2566747377655066532}
+  - component: {fileID: 2438517187269644993}
   m_Layer: 0
   m_Name: shrooms
   m_TagString: Untagged
@@ -73,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 6801488609387301547, guid: f8349053c66019743b6a98239d0c4dde, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4483ef29f915ae34e83673fba23b3b89, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,18 +99,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: -0.046144485, y: -0.0041942596}
+  m_Offset: {x: -0.004081726, y: 0.0018148422}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.375, y: 1.0625}
+    oldSize: {x: 1.375, y: 1.0625}
     newSize: {x: 1, y: 0.9375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9648094, y: 1.063343}
+  m_Size: {x: 1.3999596, y: 1.0513248}
   m_EdgeRadius: 0
 --- !u!251 &7623547352345828018
 PlatformEffector2D:
@@ -121,11 +123,42 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 268435456
   m_RotationalOffset: 0
   m_UseOneWay: 1
-  m_UseOneWayGrouping: 0
+  m_UseOneWayGrouping: 1
   m_SurfaceArc: 45
   m_UseSideFriction: 0
   m_UseSideBounce: 0
-  m_SideArc: 90
+  m_SideArc: 0
+--- !u!95 &2566747377655066532
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7623547352345828019}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0eac1908cd8e6c743a45d353ea8aaece, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2438517187269644993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7623547352345828019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4ae84cbef0a4a4468941ffbaa3632ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
